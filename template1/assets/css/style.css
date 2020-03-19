@@ -1,4 +1,4 @@
-body{
+body {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     color: #333333;
@@ -7,27 +7,28 @@ body{
 
 }
 
-*, *:after, *:before{
+*, *:after, *:before {
     box-sizing: border-box;
 }
-h1, h2, h3, h4, h5, h6{
+
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
+
 /*Container - див, центрирующий контент*/
-.container{
+.container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 /*Intro*/
-.intro{
+.intro {
     width: 100%;
     height: 100vh;
 
-    background: url("../images/intro.jpg") center no-repeat;  /*по центру, не повторяется*/
+    background: url("../images/intro.jpg") center no-repeat; /*по центру, не повторяется*/
     background-size: cover; /*покрывает всю поверхность дива*/
-
 
     /*для вертикального центрирования
     (только если один ребенок)
@@ -37,13 +38,15 @@ h1, h2, h3, h4, h5, h6{
     justify-content: center;
 
 }
-.intro__inner{
+
+.intro__inner {
     width: 100%;
     max-width: 880px;
     margin: 0 auto;
     text-align: center;
 }
-.intro__title{
+
+.intro__title {
     font-size: 150px;
     text-transform: uppercase;
     font-weight: 700;
@@ -51,7 +54,8 @@ h1, h2, h3, h4, h5, h6{
     line-height: 1.1;
 
 }
-.intro__title:after{
+
+.intro__title:after {
     content: "";
     display: block;
     height: 3px;
@@ -59,16 +63,16 @@ h1, h2, h3, h4, h5, h6{
     margin: 60px auto;
     background-color: white;
 }
-.intro__suptitle{
+
+.intro__suptitle {
     font-family: 'Kaushan Script', cursive;
     font-size: 72px;
     color: white;
     margin-bottom: 20px;
 }
 
-
 /*HEADER*/
-.header{
+.header {
     width: 100%;
     padding-top: 30px;
     /*ниже чтобы хидер прилегал к верху и занимал всю ширину*/
@@ -79,12 +83,13 @@ h1, h2, h3, h4, h5, h6{
     z-index: 1000;
 }
 
-.header_logo{
+.header_logo {
     font-size: 30px;
     font-weight: 700;
     color: white;
 }
-.header__inner{
+
+.header__inner {
     display: flex;
     /*дети займут крайние позиции родителя - слева и справа по краям*/
     /*горизонтальное выравнивание*/
@@ -93,23 +98,23 @@ h1, h2, h3, h4, h5, h6{
     align-items: center;
 }
 
-
 /*NAVIGATION*/
-.nav{
+.nav {
     text-transform: uppercase;
     font-size: 14px;
 }
-.nav__link{
+
+.nav__link {
     color: white;
     text-decoration: none;
     display: inline-block;
     vertical-align: top;
     margin: 0 15px;
     position: relative;
-    transition: color 2s linear;    /*для плавности смены цвета*/
+    transition: color 2s linear; /*для плавности смены цвета*/
 }
 
-.nav__link:after{
+.nav__link:after {
     /*полоска*/
     content: "";
     width: 100%;
@@ -124,23 +129,22 @@ h1, h2, h3, h4, h5, h6{
     transition: opacity .1s linear;
 }
 
-
-
-.nav__link:hover{
+.nav__link:hover {
     /*меняется цвет при наведении*/
     color: #fce38a;
 }
-.nav__link:hover:after, .nav__link.active:after{
+
+.nav__link:hover:after, .nav__link.active:after {
     /*меняется видимость полоски при наведении*/
     opacity: 1;
 }
 
-.nav__link.active{
+.nav__link.active {
     color: #fce38a;
 }
 
 /*BUTTONS*/
-.btn{
+.btn {
     display: inline-block;
     vertical-align: top;
     padding: 8px 30px;
@@ -150,17 +154,16 @@ h1, h2, h3, h4, h5, h6{
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
-transition: background-color 1s linear, color 1s linear;
+    transition: background-color 1s linear, color 1s linear;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: white;
     color: #333333;
 
 }
 
-
-.slider{
+.slider {
     /*margin-top: 30px;*/
     /*display: flex;*/
     /*justify-content: space-between;*/
@@ -171,7 +174,8 @@ transition: background-color 1s linear, color 1s linear;
     width: 100%;
 
 }
-.slider__item{
+
+.slider__item {
     width: 23%;
     font-size: 18px;
     color: white;
@@ -181,10 +185,12 @@ transition: background-color 1s linear, color 1s linear;
     border-top: 3px solid white;
     position: relative;
 }
-.slider__item.active{
+
+.slider__item.active {
     opacity: 1;
 }
-.slider__item.active :before{
+
+.slider__item.active :before {
     content: "";
     display: block;
     position: absolute;
@@ -194,11 +200,135 @@ transition: background-color 1s linear, color 1s linear;
     left: 0;
     background-color: #f38181;
 }
-.slider__num{
+
+.slider__num {
     font-size: 24px;
     font-weight: bold;
 }
-.slider__inner{
+
+.slider__inner {
     display: flex;
     justify-content: space-between;
+}
+
+/*SECTION*/
+
+.section {
+    padding: 80px 0;
+}
+
+.section__header {
+    margin: 0 auto 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 950px;
+}
+
+.section__suptitle {
+color: #333333;
+    font-size: 24px;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.section__title {
+    color: #333333;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.section__title:after{
+    content: "";
+    display: block;
+    background-color: #f38181;
+    width: 60px;
+    height: 3px;
+    margin: 30px auto;
+}
+
+.section__text {
+    color: #999;
+    font-size: 15px;
+}
+
+/*ABOUT*/
+.about{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+.about__item{
+    background-color: aqua;
+    width: 380px;
+
+    position: relative;
+}
+.about__item:hover .about__image{
+    transform: translate3d(-10px, -10px, 0);
+}
+.about__item:hover .about__text{
+    opacity: 1;
+}
+.about__item:hover .about__image img{
+    opacity: 0.1;
+
+}
+.about__image{
+    background: linear-gradient(to bottom,#f38181,#fce38a);
+    transition: transform .2s linear;
+}
+.about__image img{
+    transition: opacity .1s linear;
+    display: block;
+}
+.about__text{
+
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity .2s linear;
+
+    /*для выравнивания вертикально и горизонтально по центру*/
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    z-index: 2;
+    transform: translate3d(0,-50%, 0);
+}
+
+
+/*statistics*/
+.statistics{
+    background-color: aqua;
+}
+.stat{
+    display: flex;
+}
+
+.stat__item{
+    /*все колонки одинаковой ширины*/
+    flex: 1 1 0;
+    padding: 70px 25px;
+    border-left: 1px solid white;
+    text-align: center;
+    color: white;
+}
+.stat__item:last-child{
+    border-right:1px solid white;
+}
+
+.stat_count{
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 1;
+}
+
+.stat__text{
+   text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
