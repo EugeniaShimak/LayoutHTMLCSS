@@ -37,10 +37,10 @@ hr {
 .intro {
     width: 100%;
     height: 100vh;
-
+    min-height: 650px;
     background: url("../images/intro.jpg") center no-repeat; /*по центру, не повторяется*/
     background-size: cover; /*покрывает всю поверхность дива*/
-
+    position: relative;
     /*для вертикального центрирования
     (только если один ребенок)
     заголовка create template и т.д*/
@@ -94,6 +94,21 @@ hr {
     z-index: 1000;
 }
 
+.header.fixed{
+    background-color: #e98283;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    transform: translate3d(0,0,0);
+    box-shadow: 0 3px 10px rgba(0,0,0,.2);
+}
+
+.header.active{
+    background-color:#e98283;
+}
+
 .header_logo {
     font-size: 30px;
     font-weight: 700;
@@ -113,6 +128,58 @@ hr {
 .nav {
     text-transform: uppercase;
     font-size: 14px;
+}
+.nav__toggle{
+    display: none;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 1;
+    width: 30px;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.nav__toggle__item{
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+.nav__toggle__item:before,
+.nav__toggle__item:after{
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+}
+.nav__toggle__item:before{
+    top: -8px;
+}
+.nav__toggle.active .nav__toggle__item{
+    background: none;
+}
+
+.nav__toggle.active .nav__toggle__item:before{
+transform: rotate(45deg);
+    top: 0;
+}
+
+
+.nav__toggle.active .nav__toggle__item:after{
+    transform: rotate(135deg);
+    bottom: 0;
+}
+.nav__toggle__item:after{
+    bottom: -8px;
 }
 
 .nav__link {
@@ -249,7 +316,9 @@ hr {
 }
 
 .section--clients {
-    background: url(../images/clients-bg.jpg) center no-repeat;
+    background: #f5f5f5 url("../images/clients-bg.jpg") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
 .section__header {
@@ -450,6 +519,8 @@ hr {
 
 .devices__item {
     display: block;
+    width: 100%;
+    height: auto;
 }
 
 .devices__item--iphone {
@@ -463,10 +534,18 @@ hr {
 
 .wedo {
     display: flex;
+    margin: 0 -15px;
 }
 
 .wedo__item {
     flex: 1 1 0;
+    padding: 0 15px;
+}
+
+.wedo__img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 /*accordion*/
@@ -537,8 +616,15 @@ hr {
 /*reviews*/
 
 .reviews {
-    padding: 0 110px;
+    /*padding: 0 110px;*/
     position: relative;
+}
+
+.reviews .slick-slider{
+    padding: 0 110px;
+}
+.reviews .slick-slider:focus{
+    outline: none;
 }
 
 .reviews__author {
@@ -559,6 +645,7 @@ hr {
 }
 
 .reviews__item {
+    min-height: 210px;
     position: relative;
     padding-left: 255px;
 }
@@ -581,16 +668,18 @@ hr {
     margin-bottom: 15px;
 }
 
-.reviews__button {
+.slick-arrow {
     top: 50%;
     position: absolute;
+    border: 0;
+    background: none;
     transform: translateY(-50%);
     z-index: 1;
     font-size: 0;
     color: transparent;
 }
 
-.reviews__button:after {
+.slick-arrow:after {
     content: "";
     display: block;
     width: 16px;
@@ -599,12 +688,15 @@ hr {
     border-left: 2px solid #cccccc;
     transform: rotate(-45deg);
 }
+.slick-arrow:focus{
+    outline: none;
+}
 
-.reviews__button--pref {
+.slick-prev {
     left: 0;
 }
 
-.reviews__button--next {
+.slick-next{
     right: 0;
     transform: translateY(-50%) rotate(180deg);
 }
@@ -639,9 +731,20 @@ hr {
 
 /*logos*/
 .logos {
+    margin: 0 -15px;
     display: flex;
     justify-content: space-between;
     align-items: center; /*выравнивание вертикал в flex*/
+}
+
+.logos__img {
+    padding: 0 15px;
+}
+
+.logos_i {
+    max-width: 100%;
+    display: block;
+    height: auto;
 }
 
 /*WORKS*/
@@ -889,6 +992,7 @@ hr {
     padding-bottom: 65px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .footer__logo {
@@ -1047,7 +1151,6 @@ hr {
 }
 
 .instagram__item {
-    flex: 1 1 0;
     width: 33.33%;
     border-right: 1px solid white;
     border-bottom: 1px solid white;
@@ -1055,6 +1158,8 @@ hr {
 
 .instagram__img {
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 /*COPYRIGHT*/
@@ -1072,8 +1177,6 @@ hr {
 }
 
 @media (max-width: 1230px) {
-
-    /*Intro*/
     .intro__suptitle {
         font-size: 52px;
     }
@@ -1081,10 +1184,13 @@ hr {
     .intro__title {
         font-size: 120px;
     }
+
+    .reviews__text {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 990px) {
-    /*Intro*/
     .intro__suptitle {
         font-size: 32px;
     }
@@ -1116,11 +1222,80 @@ hr {
     .services__item--border {
         border: 0;
     }
+
+    .reviews__photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .reviews__item {
+        padding-left: 175px;
+    }
+
+    .reviews .slick-slider {
+        padding: 0 60px;
+    }
+
+    .clients {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .clients__item {
+        width: 100%;
+    }
+
+    .clients__item:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer__col--first {
+        width: 100%;
+    }
+
+    .footer__col--second {
+        width: 50%;
+    }
+
+    .footer__col--third {
+        width: 50%;
+        padding-left: 15px;
+    }
+
+    .instagram__item {
+        width: auto;
+    }
+
+    .instagram {
+        max-width: 355px;
+    }
 }
 
 @media (max-width: 770px) {
     .nav {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #e98283;
+        width: 100%;
+        padding: 5px 20px;
+    }
+    .nav.active{
+        display: block;
+    }
+
+    .header{
+        padding: 10px 0;
+    }
+
+    .nav__link{
+        display: block;
+        margin: 15px 0;
+    }
+
+    .nav__toggle{
+        display: block;
     }
 
     .slider__item.active :before {
@@ -1133,6 +1308,10 @@ hr {
 
     .section {
         padding: 40px 0;
+    }
+
+    .section--devices {
+        padding-bottom: 0;
     }
 
     .card {
@@ -1149,7 +1328,8 @@ hr {
     .card__item:last-child {
         margin-bottom: 0;
     }
-    .services{
+
+    .services {
         justify-content: center;
     }
 
@@ -1162,6 +1342,82 @@ hr {
 
     .services__icon {
         left: 0;
+    }
+
+    .wedo__img {
+        display: none;
+    }
+
+    .wedo__item {
+        width: 100%;
+    }
+
+    .wedo {
+        display: block;
+    }
+
+    .reviews__photo {
+        position: static;
+        margin: 10px auto;
+        display: block;
+    }
+
+    .reviews__text {
+        font-size: 16px;
+    }
+
+    .reviews__item {
+        padding-left: 0;
+    }
+
+    .reviews__author {
+        font-size: 20px;
+    }
+
+    .works__col {
+        flex: none;
+        width: 50%;
+    }
+
+    .works {
+        flex-wrap: wrap;
+    }
+
+    .clients__photo {
+        position: static;
+    }
+
+    .clients__item {
+        padding: 0;
+        text-align: center;
+    }
+
+    .clients__text:before {
+        margin: 15px auto;
+    }
+
+    .blog__item {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .blog__item:last-child {
+        margin-bottom: 0;
+    }
+
+    .blog {
+        flex-wrap: wrap;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    .footer__col--second {
+        width: 100%;
+    }
+
+    .footer__col--third {
+        width: 100%;
+        padding-left: 0;
     }
 }
 
@@ -1197,5 +1453,51 @@ hr {
 
     .stat_count {
         font-size: 52px;
+    }
+
+    .devices {
+        max-width: 320px;
+    }
+
+    .devices__item--iphone {
+        width: 180px;
+    }
+
+    .reviews .slick-slider {
+        padding: 0;
+    }
+
+    .slick-arrow {
+        top: 18%;
+    }
+
+    .logos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logos__img {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    .logos_i {
+        margin: 0 auto;
+    }
+
+    .works__col {
+        width: 100%;
+    }
+
+    .subscribe {
+        width: 100%;
+        max-width: initial;
+        flex-wrap: wrap;
+    }
+    .subscribe__input{
+        width: 100%;
+    }
+    .subscribe__button{
+        width: 100%;
     }
 }
