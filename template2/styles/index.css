@@ -1,0 +1,154 @@
+/*
+font-family: 'Open Sans', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Cardo', serif;
+*/
+
+body{
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    font-size: 14px;
+    color: #6c7279;
+    background-color: white;
+}
+
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.container{
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+/*HEADER*/
+/*============================*/
+.header{
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: 100px;
+}
+
+.header__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    position: relative;
+}
+
+.header__inner:after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #e5e5e5;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+/*============================*/
+
+
+/*NAV
+=============================*/
+.nav__item{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform:uppercase;
+    font-weight: bold;
+    opacity: 0.75;
+    color: white;
+    margin-right: 50px;
+    transition: all .5s linear;
+}
+.nav__item:hover{
+    color: white;
+    opacity: 1;
+}
+
+.nav__item:last-child{
+    margin-right: 0;
+}
+/*============================*/
+
+
+/*INTRO*/
+.intro{
+    background: #31344e url("../images/intro-bg.jpg") center no-repeat;
+    background-size: cover;
+    width: 100%;
+    /*height: 100vh;*/
+    min-height: 750px;
+    position: relative;
+    padding-top: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro__inner{
+    margin: 0 auto;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.intro__title{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 65px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.intro__text{
+    font-size: 22px;
+    font-style: italic;
+    margin-bottom: 150px;
+    line-height: 1.5;
+}
+
+/*=============================*/
+
+
+/*BUTTON*/
+.button{
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    vertical-align: center;
+    display: inline-block;
+    border-radius: 2px;
+    font-family: inherit;
+    cursor: pointer;
+    border: 0;
+    transition: background-color 1s linear;
+}
+
+.btn--red{
+    color: white;
+    background-color: #e84545;
+}
+.btn--red:hover{
+    background-color: rgb(170, 57, 57);
+}
+/*===========================*/
+
+
+/*FEATURES*/
+
+
+/*===========================*/
