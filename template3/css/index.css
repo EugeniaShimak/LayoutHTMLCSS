@@ -6,10 +6,10 @@ body {
     line-height: 1.2;
     color: #102746;
     margin: 0;
-    background-color: #000000;
+    background-color: #F2F2F2;
 }
 
-html{
+html {
     box-sizing: border-box;
 }
 
@@ -17,7 +17,19 @@ html{
     box-sizing: inherit;
 }
 
-*:focus{
+a {
+    text-decoration: none;
+}
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    margin: 0;
+}
+
+*:focus {
     outline: none;
 }
 
@@ -25,14 +37,44 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 1.2;
+    color: #102746;
+}
+
+h2.title__blue__line {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2.title__blue__line:after {
+    display: block;
+    content: "";
+    height: 3px;
+    width: 253px;
+    background-color: #006DFE;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 .container {
     max-width: 1260px;
     margin: 0 auto;
 }
 
-
 /*BUTTONS*/
-.btn{
+.btn {
     font-weight: 500;
     font-size: 24px;
     line-height: 1.1;
@@ -46,81 +88,93 @@ h1, h2, h3, h4, h5, h6, p {
     transition: background-color .7s linear;
 }
 
-.btn--search{
+.btn--search {
     background-color: #1B7DFF;
 }
 
-.btn--search:hover,.btn--search:active,.btn--search:focus{
+.btn--search:hover, .btn--search:active, .btn--search:focus {
     background-color: #1b65c9;
 }
+
+.btn__learn__more {
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #006DFE;
+
+    background: url("../img/shapes/arrow__right.svg") no-repeat right center;
+    display: inline-block;
+    padding-right: 55px;
+
+    border-bottom: 1px transparent solid;
+    transition: border-bottom .7s linear;
+}
+
+.btn__learn__more:focus, .btn__learn__more:hover {
+    border-bottom: 1px #006DFE solid;
+}
+
 /*BUTTONS==========================================================*/
 
-
-
-
 /*HEADER*/
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
 }
 
-.header__inner{
+.header__inner {
     margin: 55px 100px 0 100px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
 }
+
 /*HEADER===============================================*/
 
-
-
-
 /*NAV*/
-.nav{
+.nav {
     display: flex;
     flex-wrap: wrap;
 }
 
-.nav__link{
+.nav__link {
     margin-right: 80px;
     font-size: 18px;
     line-height: 1.2;
     color: white;
-    text-decoration: none;
-    transition: text-decoration 2s linear;
+    transition: opacity .7s linear;
 }
 
-.nav__link:last-child{
+.nav__link:last-child {
     margin: 0;
 }
 
-.nav__link:hover,.nav__link:focus, .nav__link:active{
-    text-decoration: underline;
+.nav__link:hover, .nav__link:focus, .nav__link:active {
+    opacity: .7;
 }
+
 /*NAV================================================*/
 
-
-
-
 /*INTRO*/
-.intro{
-    background:url("../img/intro.png") center no-repeat;
+.intro {
+    background: url("../img/intro.png") center no-repeat;
     background-size: cover;
     min-height: 100vh;
     width: 100%;
+    padding-bottom: 220px;
 }
 
-.intro__inner{
+.intro__inner {
     margin: 0 100px 0 100px;
     padding-top: 260px;
 
     color: white;
 }
 
-.intro__title{
+.intro__title {
     font-weight: 500;
     font-size: 50px;
     line-height: 1.2;
@@ -130,7 +184,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 }
 
-.intro__text{
+.intro__text {
     font-size: 16px;
     line-height: 1.5;
 
@@ -139,13 +193,13 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 /*SEARCH FORM INTRO*/
-.intro__search__form{
+.intro__search__form {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
 }
 
-.search__input{
+.search__input {
     background: transparent url("../img/shapes/Oval.svg") no-repeat;
     background-size: 20px;
 
@@ -163,7 +217,7 @@ h1, h2, h3, h4, h5, h6, p {
     line-height: 1.3;
 }
 
-.search__input::placeholder{
+.search__input::placeholder {
     color: white;
     opacity: 1;
     font-weight: 500;
@@ -175,20 +229,144 @@ h1, h2, h3, h4, h5, h6, p {
     transition: opacity .7s linear;
 }
 
-.search__input:focus::placeholder{
+.search__input:focus::placeholder {
     opacity: .5;
 }
+
 /*INTRO========================================================*/
 
-
-
-
 /*BENEFITS*/
-.benefits__inner{
+
+.benefits__inner {
     background-color: white;
     box-shadow: 0 2px 20px rgba(21, 24, 36, 0.15993);
+    padding: 95px 100px 110px 100px;
+
+    margin-top: -220px;
 }
-/*==============================================================*/
+
+.benefits__title {
+    margin-bottom: 120px;
+}
+
+.benefits__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 55px;
+}
+
+.benefits__item {
+    grid-column: span 1;
+}
+
+.benefits__item__img {
+    display: block;
+    margin-bottom: 35px;
+}
+
+.benefits__item__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 25px;
+}
+
+.benefits__item__text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+/*BENEFITS=====================================================*/
+
+/*PLACES*/
+.places {
+    margin: 130px 0;
+}
+
+.places__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.places__title {
+    margin-right: 15px;
+}
+
+.places__cards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+
+.places__card {
+    position: relative;
+    overflow: hidden;
+}
+
+.places__card:after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(21, 24, 36, 0.4);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.places__card:hover .places__card__img {
+    transform: scale(1.2);
+}
+
+.places__card.half {
+    grid-column: span 3;
+}
+
+.places__card.third {
+    grid-column: span 2;
+}
+
+.places__card__name {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 1.2;
+    color: #FFFFFF;
+
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    z-index: 3;
+}
+
+.places__card__img {
+    width: 100%;
+    height: 354px;
+    object-fit: cover;
+    transition: transform .7s linear;
+
+    position: relative;
+}
+
+.places__card__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font-size: 0;
+    color: transparent;
+    z-index: 4;
+}
+
+/*PLACES========================================================*/
 
 
 
